@@ -1,0 +1,94 @@
+{% extends 'auth/base.html' %} {% block content %}
+<div class="">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      margin-top: 65px;
+      text-align: center;
+      max-width: 360px;
+      padding: 20px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Ikonlar orasidagi masofa */
+      margin-bottom: 30px;
+    }
+
+    .icons img {
+      width: 290px;
+      height: 80px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .next-button {
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .next-button:hover {
+      background-color: #d40813;
+    }
+  </style>
+  <hr />
+  <div class="container mx-auto">
+    <div class="icons">
+      <img src="/static/img/lp.png" alt="Netflix Icon" />
+    </div>
+    <div class="step-text">STEP <span>2</span> OF <span>3</span></div>
+    <h1>Finish setting up your account</h1>
+    <p class="description">
+      Netflix is personalized for you. Create a password to watch on any device
+      at any time.
+    </p>
+
+    <a href="/auth/signup/regform/" class="next-button inline-block">Next</a>
+  </div>
+</div>
+{% endblock %}

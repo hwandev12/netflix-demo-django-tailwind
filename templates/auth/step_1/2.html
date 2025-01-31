@@ -1,0 +1,401 @@
+{% extends 'auth/base.html' %} {% block content %}
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+  .main {
+    font-family: sans-serif;
+    width: 1100px;
+    margin: 0 auto;
+    padding: 60px 38px;
+    font-family: "Open Sans", sans-serif;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 200;
+  }
+  h1 {
+    margin: 10px 0 30px;
+  }
+  .price {
+    display: flex;
+  }
+  .size {
+    width: 315px;
+    background: radial-gradient(
+        140.76% 131.96% at 100% 100%,
+        rgb(109, 59, 227) 0%,
+        rgba(74, 42, 150, 0.5) 73.57%,
+        rgba(74, 42, 150, 0) 100%
+      ),
+      rgb(29, 82, 157);
+    padding: 10px 16px;
+    color: #fff;
+    border-radius: 12px;
+  }
+  .size p {
+    margin: 5px 0 20px;
+  }
+  .price_item {
+    width: 335px;
+    border: 1px solid #ccc;
+    padding: 9px;
+    border-radius: 18px;
+    margin: 30px 5px 0;
+    height: 663px;
+  }
+  .prices {
+    width: 281px;
+    margin: 0 auto;
+    padding: 13px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  .prices p:first-child {
+    font-size: 12px;
+  }
+  .prices p:last-child {
+    color: #000000b3;
+  }
+  .popular {
+    background-color: #000000b3;
+    padding: 6px 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+  }
+  .price_item_premium {
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding: 0;
+    padding-bottom: 60px !important;
+  }
+  .btn {
+    padding: 20px 150px;
+    background-color: red;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 30px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    width: 440px;
+    margin: 0 auto;
+    text-align: center !important;
+  }
+  .terms p {
+    text-align: left;
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .fa-check {
+    transform: scale(0);
+    transition: 0.2s all ease;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+  .active__icon {
+    transform: scale(1) ;
+  }
+  .active__shadow {
+    box-shadow: 5px 5px 10px rgba(1,1,1,0.3);
+  }
+</style>
+<div class="main">
+  <h2>STEP 1 OF 3</h2>
+  <h1>Choose the plan that’s right for you</h1>
+  <div class="price">
+    <div class="price_item" data-plan="basic">
+      <div class="size relative">
+        <h3>Basic</h3>
+        <p>720p</p>
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Monthly price
+        </p>
+        <p style="font-weight: 600; font-size: 18px">EUR 7.99</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Video and sound quality
+        </p>
+        <p style="font-weight: 600; font-size: 18px">Good</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Resolution
+        </p>
+        <p style="font-weight: 600; font-size: 18px">720p (HD)</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Supported devices
+        </p>
+        <p style="font-weight: 600; font-size: 18px">
+          TV, computer, mobile phone, tablet
+        </p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Devices your household can watch at the same time
+        </p>
+        <p style="font-weight: 600; font-size: 18px">1</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Download devices
+        </p>
+        <p style="font-weight: 600; font-size: 18px">1</p>
+      </div>
+    </div>
+    <div class="price_item" data-plan="standard">
+      <div class="size relative">
+        <h3>Standard</h3>
+        <p>1080p</p>
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Monthly price
+        </p>
+        <p style="font-weight: 600; font-size: 18px">EUR 9.99</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Video and sound quality
+        </p>
+        <p style="font-weight: 600; font-size: 18px">Great</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Resolution
+        </p>
+        <p style="font-weight: 600; font-size: 18px">1080p (Full HD)</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Supported devices
+        </p>
+        <p style="font-weight: 600; font-size: 18px">
+          TV, computer, mobile phone, tablet
+        </p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Devices your household can watch at the same time
+        </p>
+        <p style="font-weight: 600; font-size: 18px">2</p>
+      </div>
+      <div class="prices">
+        <p
+          style="
+            font-size: 14px;
+            font-weight: 600;
+            color: #767676;
+            margin-bottom: 5px;
+          "
+        >
+          Download devices
+        </p>
+        <p style="font-weight: 600; font-size: 18px">2</p>
+      </div>
+    </div>
+    <div style="padding-bottom: 60px" class="price_item price_item_premium" data-plan="premium">
+      <div class="popular">
+        <p>Most Popular</p>
+      </div>
+      <div style="padding: 8px">
+        <div class="size relative">
+          <h3>Premium</h3>
+          <p>4K + HDR</p>
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <div class="prices">
+          <p
+            style="
+              font-size: 14px;
+              font-weight: 600;
+              color: #767676;
+              margin-bottom: 5px;
+            "
+          >
+            Monthly price
+          </p>
+          <p style="font-weight: 600; font-size: 18px">EUR 11.99</p>
+        </div>
+        <div class="prices">
+          <p
+            style="
+              font-size: 14px;
+              font-weight: 600;
+              color: #767676;
+              margin-bottom: 5px;
+            "
+          >
+            Video and sound quality
+          </p>
+          <p style="font-weight: 600; font-size: 18px">Best</p>
+        </div>
+        <div class="prices">
+          <p
+            style="
+              font-size: 14px;
+              font-weight: 600;
+              color: #767676;
+              margin-bottom: 5px;
+            "
+          >
+            Resolution
+          </p>
+          <p style="font-weight: 600; font-size: 18px">4K (Ultra HD) + HDR</p>
+        </div>
+        <div class="prices">
+          <p
+            style="
+              font-size: 14px;
+              font-weight: 600;
+              color: #767676;
+              margin-bottom: 5px;
+            "
+          >
+            Spatial audio (immersive sound)
+          </p>
+          <p style="font-weight: 600; font-size: 18px">Included</p>
+        </div>
+        <div class="prices">
+          <p
+            style="
+              font-size: 14px;
+              font-weight: 600;
+              color: #767676;
+              margin-bottom: 5px;
+            "
+          >
+            Supported devices
+          </p>
+          <p style="font-weight: 600; font-size: 18px">
+            TV, computer, mobile phone, tablet
+          </p>
+        </div>
+        <div class="prices">
+          <p
+            style="
+              font-size: 14px;
+              font-weight: 600;
+              color: #767676;
+              margin-bottom: 5px;
+            "
+          >
+            Devices your household can watch at the same time
+          </p>
+          <p style="font-weight: 600; font-size: 18px">4</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="terms" style="text-align: center">
+    <p>
+      HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to
+      your internet service and device capabilities. Not all content is
+      available in all resolutions. See our Terms of Use for more details.
+    </p>
+    <p>
+      Only people who live with you may use your account. Watch on 4 different
+      devices at the same time with Premium, 2 with Standard and 1 with Basic.
+    </p>
+    <p>Live events are included with any Netflix plan and contain ads.</p>
+    <a class="btn cursor-pointer">Next</a>
+  </div>
+</div>
+{% endblock %}

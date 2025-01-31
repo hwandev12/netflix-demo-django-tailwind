@@ -1,0 +1,15 @@
+<div class="swiper mySwiper text-white container">
+  <div class="swiper-wrapper">
+    {% for film in films %}
+    <a
+      href="/movie/detail/{{ film.id }}/"
+      class="swiper-slide bg-orange-600 h-72 bg-center bg-cover"
+      style="background-image: url({{ film.card.url }});"
+    ></a>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next bg-white w-10 h-10 rounded-full"></div>
+  <div class="swiper-button-prev bg-white w-10 h-10 rounded-full"></div>
+</div>
+
+{% include 'components/trending_movies.html' %}

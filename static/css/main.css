@@ -1,0 +1,264 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  background-color: #181818;
+}
+.container {
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.main {
+  width: 100%;
+}
+nav {
+  padding: 30px 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+}
+nav ul li {
+  list-style-type: none;
+  margin-left: 50px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 26px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+nav > div {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+nav ul li i {
+  font-size: 25px;
+}
+.main_title {
+  color: #fff;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 10px 50px;
+}
+.main_logo {
+  font-size: 45px;
+  color: red;
+  text-decoration: none;
+}
+.my_netflix {
+  background-color: #6c6b6b;
+  border-radius: 50px;
+  padding: 7px 15px;
+}
+.main_mini_info img {
+  object-fit: cover;
+  border: 2px solid white;
+  width: 700px;
+  height: 380px;
+  border-radius: 10px;
+}
+.main_mini_info_text {
+  color: #fff;
+}
+.main_mini_info_text ul {
+  display: flex;
+  align-items: center;
+}
+.main_mini_info_text ul li {
+  margin-top: 20px;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.main p {
+  color: #989595;
+  margin-top: 20px;
+  width: 700px;
+  line-height: 1.5;
+  font-size: 22px;
+}
+.main_mini_info_text h2 {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.main_mini_img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 240px;
+  height: 380px;
+  margin-left: 20px;
+  border-radius: 10px;
+  flex-shrink: 0;
+
+  box-shadow: inset 0px 0 60px rgba(1, 1, 1, 0.5);
+}
+.main_mini {
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+  scrollbar-width: none;
+}
+.main__mini_imgs {
+  scrollbar-width: none;
+}
+.sign_in_form {
+  border-radius: 5px;
+  width: 370px;
+  background-color: #000;
+  opacity: 0.9;
+  padding: 30px;
+  margin: 60px auto;
+  color: #fff;
+  padding-bottom: 100px;
+}
+.sign_in_form h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.sign_in_form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background-color: black;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+.sign_in_btn {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+#video:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+}
+#video:-moz-full-screen {
+  width: 100%;
+  height: 100%;
+}
+#video:-ms-fullscreen {
+  width: 100%;
+  height: 100%;
+}
+#video:fullscreen {
+  width: 100%;
+  height: 100%;
+}
+#video:fullscreen .controls {
+  bottom: 20px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.n_wrapper {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    border-right-color: #000;
+    /* border-top-color: ; */
+    border-bottom-color: #000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 700px;
+    padding-bottom: 70px;   
+    padding-left: 60px;
+    padding-right: 60px;
+    box-shadow: inset 150px 0 200px 100px #000,
+    inset 70px -60px 80px 20px #ccc;
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 100%, 62% 98%, 32% 98%, 0 100%, 0% 20%);
+    
+}
+.signout {
+    background-color: #fff;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    font-weight: 600;
+}
+.series {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.series h3 {
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.wrapper_info {
+    text-align: center;
+    width: 300px;
+}
+h1 {
+    font-size: 40px;
+}
+.finish {
+    background-color: red;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 50px;
+    display: inline-block;
+    border-radius: 20px;
+    margin: 10px 0 5px;
+}
+.play {
+    text-decoration: none;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 25px;
+    border: 1px solid #999898;
+    background-color: #00000095;
+}
+.hide {
+    width: 1650px;
+    margin: 50px auto 10px auto;
+    padding: 0px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.information {
+    width: 1140px;
+    background-color: rgba(135, 135, 135, 0.5);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 30px;
+}
+.information ul {
+    display: flex;
+    margin: 15px 0;
+}
+.information ul li {
+    margin: 0 15px;
+}
+.text p {
+    line-height: 1.2;
+}

@@ -1,0 +1,64 @@
+{% extends 'auth/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .main {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 100px 30px;
+        font-family: sans-serif;
+    }
+    .fa-circle-check {
+        color: red;
+        font-size: 50px;
+        margin-bottom: 30px;
+    }
+    h2 {
+        font-size: 14px;
+        font-weight: 200;
+    }
+    h1 {
+        margin: 10px 0 30px;
+    }
+    p {
+        font-size: 18px;
+        text-align: left;
+    }
+    .fa-check {
+        color: red;
+        font-size: 34px;
+        margin-right: 10px;
+    }
+    .btn {
+        padding: 20px 150px;
+        background-color: red;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 30px;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 18px;
+    }
+</style>
+<div class="main">
+    <i class="fa-regular fa-circle-check"></i>
+    <h2>STEP 1 OF 3</h2>
+    <h1>Choose your plan.</h1>
+    <div style="width: 300px; margin: 0 auto 15px; display: flex; align-items: center;">
+        <i class="fa-solid fa-check"></i>
+        <p> No commitments, cancel anytime.</p>
+    </div>
+    <div style="width: 300px; margin: 0 auto 15px; display: flex; align-items: center;">
+        <i class="fa-solid fa-check"></i>
+        <p> No commitments, cancel anytime.</p>
+    </div>
+    <div style="width: 300px; margin: 0 auto 15px; display: flex; align-items: center;">
+        <i class="fa-solid fa-check"></i>
+        <p> No commitments, cancel anytime.</p>
+    </div>
+    <a href="/auth/signup/planform/" class="btn">Next</a>
+</div>
+
+{% endblock %}

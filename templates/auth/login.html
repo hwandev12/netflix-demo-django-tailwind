@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  .sidebar {
+    display: none;
+  }
+</style>
+{% if messages %}
+<div class="absolute w-[34rem] h-[3rem] rounded-lg bg-yellow-600 right-5 top-10 flex justify-center items-center text-white gap-3">
+ <i class="fa-solid fa-triangle-exclamation"></i>
+ <span>Uzur siz to'liq ro'yhatdan o'tmagansiz!</span>
+</div>
+{% endif %}
+<div class="wrapper">
+  <form class="sign_in_form" method="post">
+    {% csrf_token %}
+    <h1>Sign In</h1>
+    <input
+      class="input"
+      type="text"
+      placeholder="Email address or mobile number"
+      name="login_field"
+      required
+    />
+    <input type="password" placeholder="Password" name="password" required />
+    <button class="sign_in_btn c-#fff" type="submit">Sign In</button>
+    <p style="text-align: center; margin: 10px 0">OR</p>
+    <button
+      style="
+        padding: 10px 12px;
+        background-color: #858181;
+        width: 100%;
+        border-radius: 5px;
+      "
+      type="submit"
+    >
+      Use a sign-in code
+    </button>
+    <p style="text-align: center; margin: 10px">Forgot password?</p>
+    <div style="display: flex; align-items: center; margin: 20px 0">
+      <input style="width: 30px; padding: 0" type="checkbox" />
+      <label>Remember me</label>
+    </div>
+    <p style="margin: 20px 0; color: #ccc">
+      New to Netflix? <a style="color: #fff" href="#">Sign up now</a>
+    </p>
+    <p style="font-size: 12px; color: #ccc">
+      This page is protected by Google reCAPTCHA to ensure you're not a bot.
+      <a href="#">Learn more</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,261 @@
+{% extends 'auth/base.html' %}
+{% block content %}
+<style>
+    nav {
+        display: flex;
+    }
+
+    .sign {
+        margin-left: 1160px;
+        text-decoration: none;
+        color: black;
+        margin-top: 50px;
+        font-size: 25px;
+        font-family: arial;
+    }
+
+    hr {
+        margin-top: -10px;
+    }
+
+    .wrapper {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .word p {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        font-family: arial;
+        margin-left: -376px;
+        margin-top: 50px;
+
+    }
+
+    .word h1 {
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        font-family: arial;
+        text-align: left;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+
+    .images {
+        margin-top: 6px;
+        margin-left: 20px;
+    }
+
+    .payment-form {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        width: 400px;
+    }
+
+    .input1 {
+        font-size: 1rem;
+        line-height: 1.5;
+        width: 100%;
+        padding-top: 1.5rem;
+        padding-right: calc(1rem + 1.5rem + 0.5rem);
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    .payment-form h3 {
+        margin: 10px 0 5px;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .payment-form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .input-row {
+        display: flex;
+        gap: 10px;
+    }
+
+
+    .subscription-box {
+        background-color: #f1f1f1;
+        padding: 15px 20px;
+        width: 385px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 8px;
+        margin-left: -1px;
+       font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .price-info {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .plan-type {
+        font-size: 12px;
+        color: #707070;
+    }
+
+    .change-link {
+        font-size: 14px;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .change-link:hover {
+        text-decoration: underline;
+    }
+
+    .change-link {
+        color: #0073e6;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .change-link:hover {
+        text-decoration: underline;
+    }
+
+    .membership-description {
+        color: #8c8c8c;
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .terms-link {
+        color: #0073e6;
+        text-decoration: none;
+    }
+
+    .terms-link:hover {
+        text-decoration: underline;
+    }
+
+    .checkbox-section {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        color: #8c8c8c;
+    }
+
+    .checkbox-section input {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkbox-section label {
+        color: #8c8c8c;
+        font-size: 16px;
+    }
+
+    .start-button {
+        display: block;
+        background-color: #e50914;
+        color: #fff;
+        border: none;
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+
+    .start-button:hover {
+        background-color: #b20710;
+    }
+
+    .captcha-text {
+        color: #888;
+        font-size: 13px;
+        margin-top: 15px;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .captcha-link {
+        color: #0073e6;
+        text-decoration: none;
+    }
+
+    .captcha-link:hover {
+        text-decoration: underline;
+    }
+</style>
+<hr>
+
+<div class="wrapper">
+        <div class="word">
+            <p>STEP 3 OF 3</p>
+            <h1 class="font-bold mt-2">Set up your credit or debit <br> card</h1>
+        </div>
+        <div class="images flex mt-2">
+            <img src="/static/img/VISA.png" alt="">
+            <img src="/static/img/MASTERCARD.png" alt="">
+            <img src="/static/img/card3.png" alt="">
+        </div>
+
+        <form method="post" class="payment-form">
+            {% csrf_token %}
+            <input class="input1" type="number" placeholder="Enter card number" name="card_number" />
+            <div class="input-row">
+                <div class="input-group">
+                    <input class="input1" type="text" placeholder="Expiration data" name="expiration_date" required />
+                </div>
+                <div class="input-group">
+                    <input class="input1" type="text" placeholder="CVV" name="cvv" required />
+                </div>
+            </div>
+            <input class="input1" type="text" placeholder="Enter name" name="name" required />
+
+            <div class="subscription-box">
+                <div class="price-info">
+                    <strong>EUR 11.99</strong>/month
+                </div>
+                <div class="plan-type">Premium</div>
+                <a href="/auth/signup/planform/" class="change-link">Change</a>
+            </div>
+
+                <p class="membership-description">By checking the checkbox below, you agree to our
+                    <a href="#" class="terms-link">Terms of Use</a>,
+                    <a href="#" class="terms-link">Privacy Statement</a>, and that you are over 18. Netflix will
+                    automatically continue your membership and charge the membership fee
+                    (currently <b>EUR 11.99/month</b>) to your payment method until you cancel. You may cancel at any
+                    time to avoid future charges.
+                </p>
+
+
+                <div class="checkbox-section flex items-center">
+                    <input type="checkbox" id="agree" class="mb-0" style="margin-bottom: 0;">
+                    <label for="agree">I agree.</label>
+                </div>
+
+                <button class="start-button" type="submit">Start Membership</button>
+
+                <p class="captcha-text">This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                    <a href="#" class="captcha-link">Learn more.</a>
+                </p>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

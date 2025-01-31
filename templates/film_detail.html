@@ -1,0 +1,255 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+  .image_main_info {
+    position: absolute;
+    background-image: linear-gradient(
+      90deg,
+      #181818 10%,
+      hsla(0, 0%, 9%, 0.98) 20%,
+      hsla(0, 0%, 9%, 0.97) 25%,
+      hsla(0, 0%, 9%, 0.95) 35%,
+      hsla(0, 0%, 9%, 0.94) 40%,
+      hsla(0, 0%, 9%, 0.92) 45%,
+      hsla(0, 0%, 9%, 0.9) 50%,
+      hsla(0, 0%, 9%, 0.87) 55%,
+      hsla(0, 0%, 9%, 0.82) 60%,
+      hsla(0, 0%, 9%, 0.75) 65%,
+      hsla(0, 0%, 9%, 0.63) 70%,
+      hsla(0, 0%, 9%, 0.45) 75%,
+      hsla(0, 0%, 9%, 0.27) 80%,
+      hsla(0, 0%, 9%, 0.15) 85%,
+      hsla(0, 0%, 9%, 0.08) 90%,
+      hsla(0, 0%, 9%, 0.03) 95%,
+      hsla(0, 0%, 9%, 0)
+    );
+    top: 0;
+    left: 0;
+    content: "";
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+  }
+  .progress::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  .loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #ff3d00 100%);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #263238;
+}
+@keyframes rotation {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg)}
+} 
+</style>
+
+<div class="absolute inset-0 bg-cover bg-center blur__background" style="background-image: url({{ film.banner.url }}); background-attachment: fixed; filter: blur(50px); background-color: #777; background-blend-mode: multiply;">
+
+</div>
+<div class="relative w-full container">
+  <nav>
+      <a href="#"><img src="/static/img/logoneflix.png" alt="logo" width="150" height="80"></a>
+      <a class="signout" href="#">Sign Out</a>
+  </nav>
+  <div class="n_wrapper" style="background-image: url({{ film.banner.url }});">
+      <div class="wrapper_info">
+          <div class="series">
+              <img src="/static/img/netflix.png" alt="" width="20" height="20">
+              <h3 class="text-white">SERIES</h3>
+          </div>
+          <img src="/static/img/default.png" alt="" width="300" height="70">
+          <a class="finish" href="#">Finish Sign-up</a>
+          <p style="font-size: 12px; margin-top: 5px;" class="text-white">Endless entertaintment starting at EUR 7.99</p>
+      </div>
+      <a class="play" href="#"><i class="fa-regular fa-circle-play"></i> Play Trailer</a>
+  </div>
+  <div class="hide text-white">
+      <div class="information">
+          <h2>Wednesday</h2>
+          <ul>
+              <li>2022</li>
+              <li>1 Season</li>
+              <li>16+</li>
+              <li>Fantasy</li>
+          </ul>
+          <div class="text flex justify-center items-start">
+              <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis adipisci voluptates assumenda.
+                  Officia a beatae eveniet sapiente quaerat error dolor.</span>
+              <hr class="w-1 h-[100px] bg-white mx-10">
+              <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo sed nisi aspernatur cum placeat
+                  eligendi enim repudiandae mollitia reiciendis aliquid?</span>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  {% if not request.user.is_authenticated %}
+  <div
+    class="netflix-cost h-16 rounded-md mb-5 flex justify-between items-center px-10"
+    style="
+      background: linear-gradient(
+        90deg,
+        rgba(105, 30, 63, 1) 13%,
+        rgba(84, 25, 48, 1) 30%,
+        rgba(60, 10, 30, 1) 62%
+      );
+      width: 95%;
+    "
+  >
+    <div class="flex items-center">
+      <img src="/static/img/netflix.png" alt="" class="w-12" />
+      <p class="text-white">Plans start at just EUR 7.99</p>
+    </div>
+    <a href="#" class="px-16 py-2 bg-red-600 text-white">Join now</a>
+  </div>
+  {% endif %}
+
+  <div class="mt-16">
+    <h2 class="text-white text-3xl mb-5">Trailers</h2>
+   {% include 'components/trailer.html' %}
+  </div>
+
+  <div class="mt-16 mb-10">
+    
+    <!-- Related Films -->
+    <h1 class="text-white text-3xl">More like this</h1>
+    <div class="grid grid-cols-5 gap-3 mt-6">
+      {% for related in related_films %}
+      <a
+        href="/movie/detail/{{ related.id }}/"
+        class="movie bg-red-600 h-44 bg-center bg-cover"
+        style="background-image: url({{ related.banner.url }});"
+      ></a>
+      {% endfor %}
+    </div>
+    <!-- Related Films -->
+    
+    <!-- episodes -->
+    <h1 class="text-white text-3xl mt-4">Episodes</h1>
+    <div class="grid grid-cols-12 gap-3 mt-6">
+      {% for index, episode in episodes %}
+      <div class="h-[300px] bg-center bg-cover col-span-3 p-3 h-[350px]" style="
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(16.4px);
+      -webkit-backdrop-filter: blur(16.4px);
+      border: 1px solid rgba(255, 255, 255, 0.1);">
+        <a
+          href="#"
+          class="movie bg-red-600 h-[180px] bg-center bg-cover w-full inline-block rounded-xl"
+          style="background-image: url({{ episode.banner.url }});"
+        ></a>
+        <h2 class="text-white text-light">{{ index }}. {{ episode.title }}</h2>
+        <p class="font-sans text-white mt-2">{{ episode.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- episodes -->
+  </div>
+</div>
+
+
+<div
+  class="w-full h-screen absolute top-0 left-0 bg-gray-900/75 z-20 modal__video justify-center items-center hidden"
+>
+  <div class="w-[70rem] h-[40rem] relative video__wrapper">
+    <div
+      style="background-image: url({{ film.banner.url }});"
+      class="w-full h-full bg-screen bg-center flex justify-center items-center modal__image"
+    >
+      <i
+        class="fa-solid fa-play text-white bg-sky-600 w-[6rem] h-[6rem] rounded-full flex justify-center items-center text-5xl cursor-pointer transition-all duration-200 hover:scale-110"
+      >
+      </i>
+    </div>
+    <video class="w-full h-full hidden">
+      {% if film.video_file %}
+      <source src="{{ film.video_file.url }}" />
+      {% endif %}
+    </video>
+    <div
+      class="controls bottom-0 absolute w-full h-[150px] flex justify-center items-center px-10 flex-col hidden"
+    >
+      <div
+        class="bottom-0 absolute w-full h-full flex justify-center items-center px-10 z-2"
+      >
+        <span
+          class="progress__wrapper w-full h-[6px] bg-gray-500 relative cursor-pointer"
+        >
+          <span
+            class="progress bg-red-600 w-[30%] h-full absolute left-0 top-0"
+          ></span>
+        </span>
+        <span class="text-white ml-5 movie__time flex items-center"
+          >1:13:35</span
+        >
+      </div>
+      <div
+        class="w-full h-[50px] absolute bottom-[10px] flex justify-between items-end py-3 px-10 z-10"
+      >
+        <div class="flex items-center gap-5">
+          <i
+            class="fa-solid fa-play text-white text-2xl cursor-pointer play__custom"
+          ></i>
+          <i
+            class="fa-solid fa-arrow-rotate-left text-white text-2xl cursor-pointer"
+          ></i>
+          <i
+            class="fa-solid fa-arrow-rotate-right text-white text-2xl cursor-pointer"
+          ></i>
+          <i
+            class="fa-solid fa-volume-high text-white text-2xl cursor-pointer volume__icon"
+          ></i>
+          <input type="range" class="w-[80px] volume__input" />
+          <span class="text-white ml-3 hidden">The Christmas Chronicles</span>
+        </div>
+        <div class="flex items-center gap-5">
+          <i
+            class="fa-solid fa-circle-question text-white text-2xl cursor-pointer"
+          ></i>
+          <i class="fa-solid fa-message text-white text-2xl cursor-pointer"></i>
+          <i class="fa-solid fa-expand text-white text-2xl cursor-pointer"></i>
+        </div>
+      </div>
+    </div>
+
+    <i
+      class="fa-solid fa-xmark absolute -right-20 -top-20 text-4xl text-white cursor-pointer exit__modal z-10"
+    ></i>
+  </div>
+</div>
+
+{% endblock %}
+
+
+<!-- Server -- Backend (Ichki tarmoq) -- Response -->
+ <!-- Client -- Frontend (Biz)  -- Request -> Server -- Response -->
+
