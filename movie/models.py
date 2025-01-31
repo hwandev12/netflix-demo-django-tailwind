@@ -58,7 +58,9 @@ class FilmTrailer(models.Model):
 # Series
 
 class Episodes(models.Model):
-    
+    """
+    Bu model orqali episode yaratamiz
+    """
     film = models.ForeignKey(Film, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=200)
     time = models.DurationField()
